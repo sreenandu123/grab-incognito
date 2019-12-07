@@ -7,7 +7,23 @@ const footerIconOptions = [
 
     const base_url = 'http://localhost:3050'
 
+    const genderOptions = [
+        {label: 'Male', value: 'Male'},
+        {label: 'Female', value: 'Female'},
+        {label: 'Others', value: 'Others'},
+    ]
+
+    const maritalStatus = [
+        {label: 'Single', value: 'single'},
+        {label: 'Married', value: 'married'}
+    ]
+
+    const signUpPayloadKeys = ['full_name', 'dob', 'phone_number', 'gender', 'marital_status', 'email_id', 'password', 'referral_code']
+
 export {
     footerIconOptions,
-    base_url
+    base_url,
+    genderOptions,
+    maritalStatus,
+    signUpPayloadKeys
 }

@@ -4,6 +4,14 @@
   .submit-button {
     margin-top: 1em;
   }
+  .new-user-text{
+    margin-top: 1em;
+    text-align: right;
+    .sign-up{
+      color: lightblue;
+      cursor: pointer;
+    }
+  }
 }
 .loader {
   text-align: center;

@@ -21,7 +21,6 @@ class GrabMobileComponent extends Component{
     }
 
     handleBtnClick = () => {
-        console.log("reached here")
         this.setState({
             loading: true
         })
@@ -37,6 +36,13 @@ class GrabMobileComponent extends Component{
             })
          }
 
+         handleSignUpUserClick = () => {
+             this.props.history.push({
+                 pathname: '/signup',
+                 state: {header: 'Sign Up Form'}
+             })
+         }
+
     render(){
         const {loading} = this.state;
         return(
@@ -45,6 +51,7 @@ class GrabMobileComponent extends Component{
                     <TextField id="standard-basic" label="Email id" onChange={(e) => this.handleStateChange('email', e.target.value)}/>
                     <TextField id="standard-basic" type='password' label="password" onChange={(e) => this.handleStateChange('password', e.target.value)}/>
                     <Button className='submit-button' variant="contained" color="primary" onClick={this.handleBtnClick}>Sign In</Button>
+                    <div className='new-user-text'>Dont have an account? <span className='sign-up' onClick={this.handleSignUpUserClick}>Sign Up</span></div>
                     </form>}
                     <div className='loader'>
                     {loading ? <CircularProgress/>:null}
