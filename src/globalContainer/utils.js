@@ -18,12 +18,20 @@ const footerIconOptions = [
         {label: 'Married', value: 'married'}
     ]
 
-    const signUpPayloadKeys = ['full_name', 'dob', 'phone_number', 'gender', 'marital_status', 'email_id', 'password', 'referral_code']
+    const signUpPayloadKeys = ['full_name', 'dob', 'phone_number', 'address', 'gender', 'marital_status', 'email_id', 'password', 'referral_code']
+
+    const creditEligibilityMapper = {
+        E1: 'Low',
+        E2: 'Medium',
+        E3: 'High',
+        NE: 'Not Eligible'
+    }
 
 export {
     footerIconOptions,
     base_url,
     genderOptions,
     maritalStatus,
-    signUpPayloadKeys
+    signUpPayloadKeys,
+    creditEligibilityMapper
 }

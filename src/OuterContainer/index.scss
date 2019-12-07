@@ -27,6 +27,11 @@
       position: relative;
       height: 81%;
       overflow-y: auto;
+      .error-msg{
+        color: lightcoral;
+        margin-top: 1em;
+        text-align: center;
+      }
     }
     .footer {
       position: absolute;

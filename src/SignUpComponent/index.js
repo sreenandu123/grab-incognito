@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OuterContainer from '../OuterContainer';
 import {withRouter} from 'react-router-dom';
-import { TextField, Select, MenuItem, InputLabel, Button, CircularProgress} from '@material-ui/core';
+import { TextField, Select, MenuItem, InputLabel, Button, CircularProgress, TextareaAutosize} from '@material-ui/core';
 import { DatePicker } from "@material-ui/pickers";
 import moment from 'moment';
 import axios from 'axios';
@@ -25,7 +25,7 @@ class SignUpComponent extends Component{
 
     handleStateChange = (key, value) => {
         this.setState({
-            formData: {...this.state.formData, [key]: value}
+            formData: {...this.state.formData, [key]: value, error: false}
         })
     }
 
@@ -40,18 +40,23 @@ class SignUpComponent extends Component{
 
     handleSignUpSubmitClick =() => {
         this.setState({
-            loading: true
+            loading: true,
+            error: false
         })
         const payload = this.getPayload();
-       const response = axios.post(`${base_url}/signup`,payload).then(resp => {
+       axios.post(`${base_url}/signup`,payload).then(resp => {
            this.setState({
                loading: false
            })
-           if(resp.status){
+           if(resp.data.status){
                this.props.history.push({
                    pathname: '/home',
-                   state: { detail: response.data, header: 'Home' }
+                   state: { ...resp.data, header: 'Home' }
                  })
+           }else{
+               this.setState({
+                   error: resp.data.text
+               })
            }
         })
     }
@@ -68,7 +73,7 @@ class SignUpComponent extends Component{
     
         render(){
             const {location} = this.props;
-            const  {formData, loading} = this.state;
+            const  {formData, loading, error} = this.state;
             return(
                 <OuterContainer header={location.state && location.state.header}>
                     <form className='sign-up-component'>
@@ -86,8 +91,11 @@ class SignUpComponent extends Component{
                     <TextField className='w-100' id="standard-basic" label="Email Id" onChange={(e) => this.handleStateChange('email_id', e.target.value)}/>
                     <TextField className='w-100' id="standard-basic" label="Password" type='password' onChange={(e) => this.handleStateChange('password', e.target.value)}/>
                     <TextField className='w-100' id="standard-basic" label="Referral Code (Optional)" onChange={(e) => this.handleStateChange('referral_code', e.target.value)}/>
+                    <TextField className='w-100' id="standard-basic" label="Address" onChange={(e) => this.handleStateChange('address', e.target.value)} />
+                    
                     <Button className='submit-button' disabled={this.checkValid()} variant="contained" color="primary" onClick={() =>this.handleSignUpSubmitClick()}>Submit</Button>
                     {loading ? <span className='loader'> <CircularProgress/></span>: null}
+                    {error ? <span className='error-msg'>{error}</span>: null}
                     </form>
                 </OuterContainer>
             )
