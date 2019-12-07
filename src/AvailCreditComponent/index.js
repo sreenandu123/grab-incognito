@@ -7,8 +7,9 @@ import Footer from '../Footer';
 class AvailCreditComponent extends Component{
 
     render(){
+        const {location} = this.props;
         return(
-            <OuterContainer>
+            <OuterContainer header={location.state && location.state.header}>
             <Footer />
         </OuterContainer>
         )

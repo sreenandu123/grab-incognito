@@ -5,8 +5,9 @@ import {withRouter} from 'react-router-dom';
 
 class SignedInComponent extends Component{
     render(){
+        const {location} = this.props;
         return(
-            <OuterContainer >
+            <OuterContainer header={location.state && location.state.header}>
                 <Footer />
             </OuterContainer>
         )
