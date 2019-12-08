@@ -8,22 +8,31 @@ class SignedInComponent extends Component{
 
     constructor (props) {
         super(props);
-        this.state = {...props.location.state}
+        this.state = {}
     }
 
     componentDidMount(){
         const {state} = this.props.location;
         if(state){
-            Object.keys(state).forEach(item => localStorage.setItem(item, state[item]))
+            Object.keys(state).forEach(item => {
+                localStorage.setItem(item, state[item])
+                this.handleStateChange(item, state[item])
+            })
         }
+    }
+
+    handleStateChange = (key, e) => {
+        this.setState({
+            [key]: e
+        })
     }
 
     render(){
         const {location} = this.props;
         return(
             <OuterContainer header={location.state && location.state.header} footer={true}>
-                <div className='e2-bucket '>Credit Eligibilty - {creditEligibilityMapper[this.state.bucket] || ''}</div>
-                <div className='e2-bucket '>Credit Score - {this.state.credit_score || ''}</div>
+                <div className='e2-bucket '>Credit Eligibilty - {creditEligibilityMapper[this.state.bucket || localStorage.bucket] || ''}</div>
+                <div className='e2-bucket '>Credit Score - {this.state.credit_score || localStorage.credit_score || ''}</div>
             </OuterContainer>
         )
     }
