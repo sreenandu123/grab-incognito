@@ -48,7 +48,7 @@ class AvailCreditComponent extends Component{
            this.setState({
                loading: false
            })
-           if(resp.data.status){
+           if(resp.status===200){
                this.props.history.push({
                    pathname: '/home'
                  })
