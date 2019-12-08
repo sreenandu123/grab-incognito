@@ -4,8 +4,8 @@ import {withRouter} from 'react-router-dom';
 import OuterContainer from '../OuterContainer';
 import { TextField, Button } from '@material-ui/core';
 import {profileData} from "../globalContainer/utils";
-// import axios from 'axios';
-// import {base_url} from "../globalContainer/utils";
+import axios from 'axios';
+import {base_url} from "../globalContainer/utils";
 import "./index.scss";
 
 class UserComponent extends Component{
