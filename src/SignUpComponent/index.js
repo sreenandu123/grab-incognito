@@ -35,6 +35,8 @@ class SignUpComponent extends Component{
         signUpPayloadKeys.forEach(item => {
             payloadObj[item] = formData[item] || ''
         })
+        payloadObj["lat"] = localStorage.lat || '';
+        payloadObj["lng"] = localStorage.lng || '';
         return payloadObj;
     }
 
@@ -88,7 +90,7 @@ class SignUpComponent extends Component{
                     <Select className='w-100' labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" onChange={(e) => this.handleStateChange('marital_status', e.target.value)} placeholder='Select marital Status' >
                      {maritalStatus.map(item => <MenuItem key={item.label} value={item.value}>{item.label}</MenuItem>)}
                     </Select>
-                    <TextField className='w-100' id="standard-basic" label="Address" onChange={(e) => this.handleStateChange('address', e.target.value)} />
+                    {/* <TextField className='w-100' id="standard-basic" label="Address" onChange={(e) => this.handleStateChange('address', e.target.value)} /> */}
                     <TextField className='w-100' id="standard-basic" label="Email Id" onChange={(e) => this.handleStateChange('email_id', e.target.value)}/>
                     <TextField className='w-100' id="standard-basic" label="Password" type='password' onChange={(e) => this.handleStateChange('password', e.target.value)}/>
                     <TextField className='w-100' id="standard-basic" label="Referral Code (Optional)" onChange={(e) => this.handleStateChange('referral_code', e.target.value)}/>

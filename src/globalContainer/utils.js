@@ -18,13 +18,13 @@ const footerIconOptions = [
         {label: 'Married', value: 'married'}
     ]
 
-    const signUpPayloadKeys = ['full_name', 'dob', 'phone_number', 'address', 'gender', 'marital_status', 'email_id', 'password', 'referral_code']
+    const signUpPayloadKeys = ['full_name', 'dob', 'phone_number', 'gender', 'marital_status', 'email_id', 'password', 'referral_code']
 
     const profileData = [
         {header: 'Full Name', key: 'full_name'},
         {header: 'Email Id', key: 'email_id'},
         {header: 'Phone Number', key: 'phone_number'},
-        {header: 'Address', key: 'address'},
+        // {header: 'Address', key: 'address'},
         {header: 'Gender', key: 'gender'},
         {header: 'Marital Status', key: 'marital_status'}
     ]

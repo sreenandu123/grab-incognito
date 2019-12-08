@@ -12,6 +12,15 @@ class GrabMobileComponent extends Component{
         this.state ={
             loading: false
         }
+        navigator.geolocation.getCurrentPosition(this.geoSuccess);
+    }
+
+     geoSuccess = (position) => {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        console.log(lat, lng)
+        localStorage.setItem('lat', lat);
+        localStorage.setItem('lng', lng);
     }
 
     handleStateChange = (key, e) => {
