@@ -22,8 +22,8 @@ class SignedInComponent extends Component{
         const {location} = this.props;
         return(
             <OuterContainer header={location.state && location.state.header} footer={true}>
-                <div className='e2-bucket '>Credit Eligibilty - {creditEligibilityMapper[localStorage.bucket] || ''}</div>
-                <div className='e2-bucket '>Credit Score - {localStorage.credit_score || ''}</div>
+                <div className='e2-bucket '>Credit Eligibilty - {creditEligibilityMapper[this.state.bucket] || ''}</div>
+                <div className='e2-bucket '>Credit Score - {this.state.credit_score || ''}</div>
             </OuterContainer>
         )
     }
