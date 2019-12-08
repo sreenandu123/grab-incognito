@@ -1,5 +1,6 @@
 import React from 'react';
 import "./index.scss"
+import Footer from '../Footer';
 
 const OuterContainer = (props) => {
     return (
@@ -11,6 +12,7 @@ const OuterContainer = (props) => {
                     <div className='body'>
                     {props.children}
                     </div>
+                    {props.footer && <Footer />}
                 </div>
             </div>
     )

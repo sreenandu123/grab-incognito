@@ -32,15 +32,25 @@
         margin-top: 1em;
         text-align: center;
       }
+      .e2-bucket{
+        padding: 1em;
+        text-align: center;
+        border: 1px solid darkseagreen;
+        border-radius: 6px;
+        margin-bottom: 1em;
+        color: green;
+    
+    }
     }
     .footer {
       position: absolute;
-      bottom: 0;
-      display: flex;
-      width: 91%;
-      justify-content: space-between;
-      border-top: 1px solid lightgray;
-      padding-top: 0.5em;
+    bottom: 2em;
+    display: flex;
+    width: 22%;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+    padding-top: 0.5em;
+    background: white;
       img {
         width: 40px;
         height: 40px;

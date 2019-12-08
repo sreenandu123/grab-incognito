@@ -1,0 +1,15 @@
+.profile-component{
+    margin-bottom: 3em;
+    overflow-y: scroll;
+    .ta-left{
+        text-align: left !important;
+    }
+    .refer{
+        &-friends{
+            font-size: 14px;
+        }
+        .submit-button{
+            margin-top: 1em;
+        }
+    }
+}
