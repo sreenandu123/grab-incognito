@@ -5,11 +5,15 @@
         text-align: left !important;
     }
     .refer{
+        font-size: 14px;
         &-friends{
             font-size: 14px;
         }
         .submit-button{
             margin-top: 1em;
         }
+    }
+    .sign-out{
+        margin-top: 1em;
     }
 }
