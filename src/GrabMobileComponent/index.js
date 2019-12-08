@@ -41,7 +41,7 @@ class GrabMobileComponent extends Component{
        axios.post(`${base_url}/signin`,payload).then(resp => {
               this.props.history.push({
                   pathname: '/home',
-                  state: { ...resp.data, header: 'Home' }
+                  state: { status: resp.data.status, ...resp.data.data, header: 'Home' }
                 })
             })
          }
