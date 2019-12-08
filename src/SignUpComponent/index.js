@@ -53,7 +53,7 @@ class SignUpComponent extends Component{
            if(resp.data.status){
                this.props.history.push({
                    pathname: '/home',
-                   state: { ...resp.data, header: 'Home' }
+                   state: { ...resp.data.data, header: 'Home' }
                  })
            }else{
                this.setState({
