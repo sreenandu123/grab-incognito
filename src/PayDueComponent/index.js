@@ -63,7 +63,7 @@ class PayDuesComponent extends Component{
         return(
             <OuterContainer header={location.state && location.state.header} footer={true}>
                 <div className='avail-credit-component'>
-                <div className='e2-bucket '>Due Amount - {due_amount || ''}</div>
+                <div className='e2-bucket '>Due Amount - {due_amount || 0}</div>
                 <div className='e2-bucket '>Due Time - {moment(due_time).format('LL') || ''}</div>
                 
                 <TextField className='credit_amount' id="standard-basic" label="Enter amount" onChange={(e) => this.handleStateChange('payment', e.target.value)}/>
