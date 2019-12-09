@@ -32,7 +32,8 @@ class PayDuesComponent extends Component{
 
     checkValid = () => {
         const {payment} = this.state;
-        if(payment && payment<=this.state.due_amount){
+        console.log("asd",  payment, this.state)
+        if(Number(payment) && Number(payment)<=Number(this.state.due_amount)){
             return false;
         }   
         return true;
@@ -63,10 +64,10 @@ class PayDuesComponent extends Component{
         return(
             <OuterContainer header={location.state && location.state.header} footer={true}>
                 <div className='avail-credit-component'>
-                <div className='e2-bucket '>Due Amount - {due_amount || ''}</div>
-                <div className='e2-bucket '>Due Time - {moment(due_time).format('LL') || ''}</div>
+                <div className='e2-bucket '>Due Amount - {due_amount || 0}</div>
+                <div className='e2-bucket '>Due Time - {moment().format('LL') || ''}</div>
                 
-                <TextField className='credit_amount' id="standard-basic" label="Enter amount" onChange={(e) => this.handleStateChange('payment', e.target.value)}/>
+                <TextField className='credit_amount' id="standard-basic" label="Enter amount" onChange={(e) => this.handleStateChange('payment', e.target.value)} autoComplete={'off'}/>
 
                 <Button className='submit-button' variant="contained" color="primary" disabled={this.checkValid()} onClick={this.handleBtnClick}>Pay Due</Button>
                 </div>

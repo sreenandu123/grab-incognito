@@ -48,15 +48,9 @@ class AvailCreditComponent extends Component{
            this.setState({
                loading: false
            })
-           if(resp.data.status){
                this.props.history.push({
                    pathname: '/home'
                  })
-           }else{
-               this.setState({
-                   error: resp.data.text
-               })
-           }
         })
     }
 
@@ -65,7 +59,7 @@ class AvailCreditComponent extends Component{
         return(
             <OuterContainer header={location.state && location.state.header} footer={true}>
                 <div className='avail-credit-component'>
-                <div className='e2-bucket '>Credit limit - {localStorage.limit || ''}</div>
+                <div className='e2-bucket '>Credit limit - {localStorage.limit || 0}</div>
                 <TextField className='credit_amount' id="standard-basic" label="Enter amount" onChange={(e) => this.handleStateChange('credit_amount', e.target.value)}/>
                 <Button className='submit-button' variant="contained" color="primary" disabled={this.checkValid()} onClick={this.handleBtnClick}>Avail Credit</Button>
                 </div>

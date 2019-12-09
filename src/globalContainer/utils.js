@@ -5,7 +5,7 @@ const footerIconOptions = [
         {imageIcon: 'user.png', url: '/user', header: 'Profile'},
     ]
 
-    const base_url = 'http://localhost:3050'
+    const base_url = 'http://localhost:5000'
 
     const genderOptions = [
         {label: 'Male', value: 'Male'},
